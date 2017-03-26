@@ -5,11 +5,6 @@ project(EncryptionAuthentication)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
 
-include_directories(
-    ${PROJECT_SOURCE_DIR}
-    ${PROJECT_BINARY_DIR}
-)
-
 file(
     GLOB
     VIKEY_H
@@ -64,6 +59,13 @@ add_library(
     ${ENCRYPTION_AUTHENTICATION_H}
     ${ENCRYPTION_AUTHENTICATION_CXX}
     ${ENCRYPTION_AUTHENTICATION_MOC}
+)
+
+target_include_directories(
+    EncryptionAuthentication
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}
+    ${PROJECT_BINARY_DIR}
 )
 
 target_link_libraries(
